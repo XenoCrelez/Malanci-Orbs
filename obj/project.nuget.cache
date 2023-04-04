@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "/q+3Fw76tMJaWDR9+KL+ZQR6UIhhq4OmNccIU2/h73ZZBZqISNv9PfgnscJix9OmQsRyop8MTOo1vJHi8VebBA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\user\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\MEMO\\MEMO.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\user\\.nuget\\packages\\tmodloader.codeassist\\0.1.5\\tmodloader.codeassist.0.1.5.nupkg.sha512"
+  ],
+  "logs": []
+}

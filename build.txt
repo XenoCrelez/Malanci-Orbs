@@ -1,0 +1,3 @@
+displayName = Malanci Orbs
+author = XenoCrelez
+version = 0.1
