@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "TRiQEZPJyjsyNmZ7lmeLsI6r59cNDe521QQdcvnXxp5vwQdA8xAVU7OlrE5rrCOaZPE6b9Vx/k6lZq15xRt07w==",
+  "dgSpecHash": "vVatZo1djuxIo6tpLuvd4c/z1yExLQL6BS2gd3Gqn2Gr/DMZaaXjUY8yOJukIfgYhMi0pTDV6Q/FGoUqNmU1cA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Apollos\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\Malanci-Orbs\\Malanci-Orbs.csproj",
+  "projectFilePath": "C:\\Users\\Apollos\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\Malanci_Orbs\\Malanci_Orbs.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Apollos\\.nuget\\packages\\tmodloader.codeassist\\0.1.5\\tmodloader.codeassist.0.1.5.nupkg.sha512"
   ],

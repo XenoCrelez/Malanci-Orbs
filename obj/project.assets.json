@@ -37,11 +37,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Apollos\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\Malanci-Orbs\\Malanci-Orbs.csproj",
-      "projectName": "Malanci-Orbs",
-      "projectPath": "C:\\Users\\Apollos\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\Malanci-Orbs\\Malanci-Orbs.csproj",
+      "projectUniqueName": "C:\\Users\\Apollos\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\Malanci_Orbs\\Malanci_Orbs.csproj",
+      "projectName": "Malanci_Orbs",
+      "projectPath": "C:\\Users\\Apollos\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\Malanci_Orbs\\Malanci_Orbs.csproj",
       "packagesPath": "C:\\Users\\Apollos\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Apollos\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\Malanci-Orbs\\obj\\",
+      "outputPath": "C:\\Users\\Apollos\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\Malanci_Orbs\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -28,13 +28,44 @@ namespace Malanci_Orbs.Content.Items.Weapons.Projectiles.Weapons
             Projectile.light = 0.25f;
             Projectile.ignoreWater = false;
             Projectile.tileCollide = true;
+            Projectile.damage = 10;
         }
-
+        
         public override void AI()
         {
+            float cooldown = LightsOfTheBane.cooldown;
+
+            cooldown = Projectile.ai[0];
+
+            Projectile.ai[0]++;
+            Vector2 mousePosition = Main.MouseWorld;
+
+            // Calculate the direction vector from the player to the mouse
+            float veloX = Projectile.velocity.X;
+            float veloY = Projectile.velocity.Y;
+
+            float rotation = MathHelper.ToRadians(90f) + (float)Math.Atan2((double)veloY, (double)veloX);
+            
+            Projectile.rotation = rotation;
+            if (Projectile.ai[0] < 25f) 
+            {
+                Projectile.velocity *= 1.1f;
+                
+
+            }
+            else
+            {
+                Projectile.velocity.Y += 0.2f; // add a constant Y velocity component
+                Projectile.rotation += MathHelper.ToRadians(2f); // rotate the projectile downwards
+                Projectile.alpha++;
+            }
+            if (Projectile.ai[0] >= 180 || cooldown != 0)
+            {
+                Projectile.Kill();
+            }
 
 
-            int dust = Dust.NewDust(Projectile.Center, 1, 1, 15, 0f, 0f, 0, default, 1f);
+            int dust = Dust.NewDust(Projectile.Center, 1, 1, DustID.MagicMirror, 0f, 0f, 0, default, 1f);
             Main.dust[dust].noGravity = true;
             Main.dust[dust].velocity *= 0.3f;
             Main.dust[dust].scale = Main.rand.Next(100, 135) * 0.013f;

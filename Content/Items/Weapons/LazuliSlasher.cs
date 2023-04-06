@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace Content.Items.Weapons
+namespace Malanci_Orbs.Content.Items.Weapons
 {
 	public class LazuliSlasher : ModItem
 	{
@@ -20,10 +20,10 @@ namespace Content.Items.Weapons
 			Item.height = 56;
 			Item.useTime = 10;
 			Item.useAnimation = 10;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 6;
 			Item.value = 10000;
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
 		}

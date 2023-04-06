@@ -5,11 +5,17 @@ using Microsoft.Xna.Framework;
 using Terraria.DataStructures;
 using Malanci_Orbs.Content.Items.Weapons.Projectiles.Weapons;
 
+
+
+
 namespace Malanci_Orbs.Content.Items.Weapons
 {
+
     public class LightsOfTheBane : ModItem
 	{
-		public override void SetStaticDefaults()
+        public static int cooldown = 0;
+        
+        public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Lights of the Bane"); // By default, capitalization in classnames will add spaces to the display name. You can customize the display name here by uncommenting this line.
 			Tooltip.SetDefault("A weapon that can surpass through rangers.");
@@ -20,35 +26,49 @@ namespace Malanci_Orbs.Content.Items.Weapons
 			Item.damage = 82;
 			Item.DamageType = DamageClass.Melee;
 			Item.width = 82;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.height = 82;
 			Item.useTime = 20;
 			Item.useAnimation = 20;
-			Item.useStyle = 1;
-			Item.knockBack = 6;
+            
+            Item.knockBack = 6;
 			Item.value = 10000;
-			Item.rare = 2;
+			Item.rare = ItemRarityID.Green;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
 			//Item.shoot = ModContent.ProjectileType<LightOfTheBaneProjectiles>();
 			Item.shootSpeed = 8f;
 		}
+        
 
         public override bool AltFunctionUse(Player player)
         {
             return true;
         }
-
-        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+        public override bool? UseItem(Player player)
         {
-            if (player.altFunctionUse == 2) // right-click
-            {
-				// Set up the projectile
-				Item.shoot = ModContent.ProjectileType<LightOfBaneProjectile>();
 
-                return true;
-            }
-            return false;
+            Vector2 mousePosition = Main.MouseWorld;
+
+            // Calculate the direction vector from the player to the mouse
+            Vector2 direction = mousePosition - player.Center;
+            direction.Normalize();
+			
+
+            Vector2 newvelo = Item.velocity = direction;
+			Vector2 playerPos = player.position;
+			if (player.altFunctionUse == 2 && cooldown == 0)
+			{
+				Projectile.NewProjectile(Projectile.InheritSource(player), playerPos, newvelo, ModContent.ProjectileType<LightOfBaneProjectile>(), 10, 4f, Main.myPlayer);
+				
+
+				
+		
+			
+			}
+			return true;
         }
+
 
         public override void AddRecipes()
 		{
