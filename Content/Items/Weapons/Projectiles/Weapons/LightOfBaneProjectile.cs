@@ -5,11 +5,12 @@ using Terraria.GameContent.Creative;
 using Microsoft.Xna.Framework;
 using Terraria.DataStructures;
 using System;
-
+using Terraria.Audio;
 namespace Malanci_Orbs.Content.Items.Weapons.Projectiles.Weapons
 {
     public class LightOfBaneProjectile : ModProjectile
     {
+        
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Lights of the Bane's Slash");
@@ -23,20 +24,24 @@ namespace Malanci_Orbs.Content.Items.Weapons.Projectiles.Weapons
             Projectile.aiStyle = 0;
             Projectile.friendly = true;
             Projectile.hostile = false;
-            Projectile.penetrate = 3;
+            Projectile.penetrate = 1;
             Projectile.timeLeft = 600;
             Projectile.light = 0.25f;
             Projectile.ignoreWater = false;
             Projectile.tileCollide = true;
-            Projectile.damage = 10;
+            Projectile.damage = 30;
+            
         }
-        
+        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        {
+            
+            SoundEngine.PlaySound(SoundID.Shatter);
+        }
         public override void AI()
         {
-            float cooldown = LightsOfTheBane.cooldown;
 
-            cooldown = Projectile.ai[0];
 
+            
             Projectile.ai[0]++;
             Vector2 mousePosition = Main.MouseWorld;
 
@@ -59,10 +64,8 @@ namespace Malanci_Orbs.Content.Items.Weapons.Projectiles.Weapons
                 Projectile.rotation += MathHelper.ToRadians(2f); // rotate the projectile downwards
                 Projectile.alpha++;
             }
-            if (Projectile.ai[0] >= 180 || cooldown != 0)
-            {
-                Projectile.Kill();
-            }
+            
+            
 
 
             int dust = Dust.NewDust(Projectile.Center, 1, 1, DustID.MagicMirror, 0f, 0f, 0, default, 1f);

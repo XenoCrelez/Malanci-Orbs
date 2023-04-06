@@ -13,7 +13,7 @@ namespace Malanci_Orbs.Content.Items.Weapons
 
     public class LightsOfTheBane : ModItem
 	{
-        public static int cooldown = 0;
+        
         
         public override void SetStaticDefaults()
 		{
@@ -28,8 +28,8 @@ namespace Malanci_Orbs.Content.Items.Weapons
 			Item.width = 82;
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.height = 82;
-			Item.useTime = 20;
-			Item.useAnimation = 20;
+			Item.useTime = 15;
+			Item.useAnimation = 15;
             
             Item.knockBack = 6;
 			Item.value = 10000;
@@ -45,27 +45,40 @@ namespace Malanci_Orbs.Content.Items.Weapons
         {
             return true;
         }
+		private int lastSpawnTime = -1000;
+        
         public override bool? UseItem(Player player)
         {
 
             Vector2 mousePosition = Main.MouseWorld;
-
+			int currentTime = (int)Main.GameUpdateCount;
+            int cooldown = 5 * 60; //defaults: 5 * 60
             // Calculate the direction vector from the player to the mouse
             Vector2 direction = mousePosition - player.Center;
             direction.Normalize();
-			
+
+			//projectiles
+			Vector2 projtwo = new Vector2(player.position.X + 10f, player.position.Y + 15);
+            Vector2 projthree = new Vector2(player.position.X + 10f, player.position.Y - 15);
 
             Vector2 newvelo = Item.velocity = direction;
 			Vector2 playerPos = player.position;
-			if (player.altFunctionUse == 2 && cooldown == 0)
-			{
-				Projectile.NewProjectile(Projectile.InheritSource(player), playerPos, newvelo, ModContent.ProjectileType<LightOfBaneProjectile>(), 10, 4f, Main.myPlayer);
-				
 
-				
-		
 			
-			}
+            if (currentTime > lastSpawnTime + cooldown) //cool down is 5 seconds, lastSpawnTime is set to the current time, and then currentime
+														 //is checked to have passed 5 seconds, then we spawn new instances of projectiles.
+            {
+                // Spawn projectile code here
+				if (player.altFunctionUse == 2)
+				{
+					Projectile.NewProjectile(Projectile.InheritSource(player), playerPos, newvelo, ModContent.ProjectileType<LightOfBaneProjectile>(), 30, 4f, Main.myPlayer);
+                    Projectile.NewProjectile(Projectile.InheritSource(player), projtwo, newvelo, ModContent.ProjectileType<LightOfBaneProjectile>(), 30, 4f, Main.myPlayer);
+                    Projectile.NewProjectile(Projectile.InheritSource(player), projthree, newvelo, ModContent.ProjectileType<LightOfBaneProjectile>(), 30, 4f, Main.myPlayer);
+                    lastSpawnTime = currentTime;
+				}
+							
+                
+            }
 			return true;
         }
 
