@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\tModLoader.targets" />
+  <PropertyGroup>
+    <AssemblyName>Malanci</AssemblyName>
+    <TargetFramework>net6.0</TargetFramework>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="obj\Debug\net6.0\.NETCoreApp,Version=v6.0.AssemblyAttributes.cs" />
+    <Compile Include="obj\Debug\net6.0\Malanci.AssemblyInfo.cs" />
+    <Compile Include="obj\Release\net6.0\.NETCoreApp,Version=v6.0.AssemblyAttributes.cs" />
+    <Compile Include="obj\Release\net6.0\Malanci.AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="obj\Malanci.csproj.nuget.dgspec.json" />
+    <Content Include="obj\project.assets.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="tModLoader.CodeAssist" Version="0.1.*" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Debug\net6.0\" />
+    <Folder Include="bin\Release\net6.0\" />
+    <Folder Include="Common\Systems\GenPasses\" />
+    <Folder Include="Content\Dusts\" />
+    <Folder Include="Content\Items\Placeables\" />
+    <Folder Include="Content\Items\Tools\" />
+    <Folder Include="Content\Tiles\" />
+    <Folder Include="obj\Debug\net6.0\refint\" />
+    <Folder Include="obj\Debug\net6.0\ref\" />
+    <Folder Include="obj\Release\net6.0\refint\" />
+    <Folder Include="obj\Release\net6.0\ref\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Malanci.sln" />
+    <None Include="obj\Debug\net6.0\Malanci.AssemblyInfoInputs.cache" />
+    <None Include="obj\Debug\net6.0\Malanci.assets.cache" />
+    <None Include="obj\Debug\net6.0\Malanci.csproj.AssemblyReference.cache" />
+    <None Include="obj\Debug\net6.0\Malanci.GeneratedMSBuildEditorConfig.editorconfig" />
+    <None Include="obj\Malanci.csproj.nuget.g.props" />
+    <None Include="obj\Malanci.csproj.nuget.g.targets" />
+    <None Include="obj\project.nuget.cache" />
+    <None Include="obj\Release\net6.0\Malanci.AssemblyInfoInputs.cache" />
+    <None Include="obj\Release\net6.0\Malanci.assets.cache" />
+    <None Include="obj\Release\net6.0\Malanci.csproj.AssemblyReference.cache" />
+    <None Include="obj\Release\net6.0\Malanci.GeneratedMSBuildEditorConfig.editorconfig" />
+  </ItemGroup>
+</Project>

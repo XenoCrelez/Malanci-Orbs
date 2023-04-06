@@ -1,12 +1,14 @@
-﻿using System;
+﻿using Terraria.ModLoader;
 using Terraria;
 using Terraria.ID;
-using Terraria.ModLoader;
+using Terraria.GameContent.Creative;
 using Microsoft.Xna.Framework;
+using Terraria.DataStructures;
+using System;
 
-namespace MEMO.Projectiles
+namespace Malanci_Orbs.Content.Items.Weapons.Projectiles.Weapons
 {
-    public class LightOfTheBaneProjectiles : ModProjectile
+    public class LightOfBaneProjectile : ModProjectile
     {
         public override void SetStaticDefaults()
         {
@@ -30,15 +32,19 @@ namespace MEMO.Projectiles
 
         public override void AI()
         {
-            int dust = Dust.NewDust(Projectile.Center, 1, 1, 15, 0f, 0f, 0, default(Color), 1f);
+
+
+            int dust = Dust.NewDust(Projectile.Center, 1, 1, 15, 0f, 0f, 0, default, 1f);
             Main.dust[dust].noGravity = true;
             Main.dust[dust].velocity *= 0.3f;
-            Main.dust[dust].scale = (float)Main.rand.Next(100, 135) * 0.013f;
+            Main.dust[dust].scale = Main.rand.Next(100, 135) * 0.013f;
 
-            int dust2 = Dust.NewDust(Projectile.Center, 1, 1, DustID.Shadowflame, 0f, 0f, 0, default(Color), 1f);
+            int dust2 = Dust.NewDust(Projectile.Center, 1, 1, DustID.Shadowflame, 0f, 0f, 0, default, 1f);
             Main.dust[dust2].noGravity = true;
             Main.dust[dust2].velocity *= 0.3f;
-            Main.dust[dust2].scale = (float)Main.rand.Next(100, 135) * 0.013f;
+            Main.dust[dust2].scale = Main.rand.Next(100, 135) * 0.013f;
         }
+
+
     }
 }

@@ -1,11 +1,13 @@
+using Terraria.ModLoader;
 using Terraria;
 using Terraria.ID;
-using Terraria.ModLoader;
-using MEMO.Projectiles;
+using Microsoft.Xna.Framework;
+using Terraria.DataStructures;
+using Malanci_Orbs.Content.Items.Weapons.Projectiles.Weapons;
 
-namespace MEMO.Items
+namespace Malanci_Orbs.Content.Items.Weapons
 {
-	public class LightsOfTheBane : ModItem
+    public class LightsOfTheBane : ModItem
 	{
 		public override void SetStaticDefaults()
 		{
@@ -27,11 +29,28 @@ namespace MEMO.Items
 			Item.rare = 2;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
-			Item.shoot = ModContent.ProjectileType<LightOfTheBaneProjectiles>();
+			//Item.shoot = ModContent.ProjectileType<LightOfTheBaneProjectiles>();
 			Item.shootSpeed = 8f;
 		}
 
-		public override void AddRecipes()
+        public override bool AltFunctionUse(Player player)
+        {
+            return true;
+        }
+
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+        {
+            if (player.altFunctionUse == 2) // right-click
+            {
+				// Set up the projectile
+				Item.shoot = ModContent.ProjectileType<LightOfBaneProjectile>();
+
+                return true;
+            }
+            return false;
+        }
+
+        public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.DemoniteBar, 10);

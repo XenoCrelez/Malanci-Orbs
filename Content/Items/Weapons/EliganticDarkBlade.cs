@@ -1,9 +1,10 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using MEMO.Projectiles;
+using Malanci.Content.Items.Weapons;
 
-namespace MEMO.Items
+
+namespace Malanci.Content.Items.Weapons
 {
 	public class EliganticDarkBlade : ModItem
 	{
@@ -27,7 +28,7 @@ namespace MEMO.Items
 			Item.rare = 2;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
-			Item.shoot = ModContent.ProjectileType<LightOfTheBaneProjectiles>();
+			//Item.shoot = ModContent.ProjectileType<LOTBdust>(); 
 			Item.shootSpeed = 8f;
 		}
 

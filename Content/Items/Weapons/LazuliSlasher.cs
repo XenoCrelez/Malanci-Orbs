@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace MEMO.Items
+namespace Content.Items.Weapons
 {
 	public class LazuliSlasher : ModItem
 	{

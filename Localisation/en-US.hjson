@@ -1,0 +1,27 @@
+﻿Mods:{
+	FirstMod:{
+	
+		ItemName:{
+			EliganticDarkBlade:"Eligantic Dark Blade"
+			LazuliSlasher:"Lazuli Slasher"
+		}
+
+		ItemTooltip:{
+			EliganticDarkBlade:"Void-plagued blade with a slimy feeling"
+			LazuliSlasher:"First ever hand-crafted sword made by an Orbon."
+		}
+
+		MapObject:{
+			
+			
+
+
+		}
+		ProjectileName:{
+			LightOfBaneProjectile:"Kunai"
+			
+		}
+
+	}
+
+}
