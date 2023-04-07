@@ -4,7 +4,8 @@ using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.DataStructures;
 using Malanci_Orbs.Content.Items.Weapons.Projectiles.Weapons;
-
+using System;
+using System.Threading;
 
 
 
@@ -72,8 +73,10 @@ namespace Malanci_Orbs.Content.Items.Weapons
 				if (player.altFunctionUse == 2)
 				{
 					Projectile.NewProjectile(Projectile.InheritSource(player), playerPos, newvelo, ModContent.ProjectileType<LightOfBaneProjectile>(), 30, 4f, Main.myPlayer);
-                    Projectile.NewProjectile(Projectile.InheritSource(player), projtwo, newvelo, ModContent.ProjectileType<LightOfBaneProjectile>(), 30, 4f, Main.myPlayer);
-                    Projectile.NewProjectile(Projectile.InheritSource(player), projthree, newvelo, ModContent.ProjectileType<LightOfBaneProjectile>(), 30, 4f, Main.myPlayer);
+                    Thread.Sleep(100);
+                    Projectile.NewProjectile(Projectile.InheritSource(player), playerPos, newvelo, ModContent.ProjectileType<LightOfBaneProjectile>(), 30, 4f, Main.myPlayer);
+                    Thread.Sleep(100);
+                    Projectile.NewProjectile(Projectile.InheritSource(player), playerPos, newvelo, ModContent.ProjectileType<LightOfBaneProjectile>(), 30, 4f, Main.myPlayer);
                     lastSpawnTime = currentTime;
 				}
 							
